@@ -1,19 +1,9 @@
-# Deliveryxer
+# Phoenix + PostgreSQL + Docker = :rocket:
 
-To start your Phoenix server:
+## Deliveryxer
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server`
+- Ensure you have Docker and Docker Composer installed locally
+- Run `docker-compose up --build`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+If you wish to visit PgAdmin, go to [`localhost:9000`](http://localhost:9000)
