@@ -1,10 +1,12 @@
-FROM node:12.14.0-alpine3.11
+FROM bitwalker/alpine-elixir-phoenix:latest
+WORKDIR /app
 
-RUN apk add --no-cache bash
+COPY mix.exs .
+COPY mix.lock .
 
-RUN wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb && sudo dpkg -i erlang-solutions_2.0_all.deb
+RUN mkdir assets
 
-RUN sudo apt-get update
-RUN sudo apt-get install esl-erlang
-RUN sudo apt-get install elixir
-RUN mix local.hex
+COPY assets/package.json assets
+COPY assets/package-lock.json assets
+
+CMD mix deps.get && cd assets && npm install && cd .. && mix phx.server

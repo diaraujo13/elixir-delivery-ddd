@@ -1,0 +1,24 @@
+version '3.6'
+services:
+  db:
+    container_name: db_server
+    build: .docker/postgres
+    restart: always
+    tty: true
+    volumes:
+      - .docker/dbdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=sistema
+   api:
+    build: .
+    depends_on:
+      - db
+    environment:
+      MIX_ENV: dev
+    env_file:
+      - .env
+    ports:
+      - '4000:4000'
+    volumes:
+      - .:/app
