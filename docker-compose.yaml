@@ -28,7 +28,7 @@ services:
       - .:/app
 
   pgadmin:
-    container_name: pgadmin
+    container_name: pgadmin_delivery_elixir
     image: dpage/pgadmin4
     tty: true
     environment:

@@ -7,6 +7,7 @@ defmodule DeliveryxerWeb.Router do
 
   scope "/api", DeliveryxerWeb do
     pipe_through :api
+    resources "/produtos", ProdutoController, except: [:new, :edit]
   end
 
   # Enables LiveDashboard only for development

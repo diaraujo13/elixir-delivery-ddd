@@ -27,6 +27,7 @@ defmodule Deliveryxer.Application do
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
+  @spec config_change(any, any, any) :: :ok
   def config_change(changed, _new, removed) do
     DeliveryxerWeb.Endpoint.config_change(changed, removed)
     :ok
