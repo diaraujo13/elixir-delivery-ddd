@@ -1,7 +1,8 @@
-version '3.6'
+version: "3"
+
 services:
   db:
-    container_name: db_server
+    container_name: db_delivery_elixir
     build: .docker/postgres
     restart: always
     tty: true
@@ -10,8 +11,11 @@ services:
     environment:
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=sistema
-   api:
+
+  api_server:
     build: .
+    container_name: api_delivery_elixir
+    entrypoint: ./.docker/docker-entrypoint.sh
     depends_on:
       - db
     environment:
@@ -19,6 +23,6 @@ services:
     env_file:
       - .env
     ports:
-      - '4000:4000'
+      - "4000:4000"
     volumes:
       - .:/app
